@@ -56,9 +56,7 @@ opt_opts(Mod) ->
 		    (no_new_binaries) -> true;
 		    (no_new_apply) -> true;
 		    (no_gc_bifs) -> true;
-		    (no_constant_pool) -> true;
 		    (no_stack_trimming) -> true;
-		    (no_binaries) -> true;
 		    (debug_info) -> true;
 		    (_) -> false
 		 end, Opts).
@@ -70,6 +68,5 @@ opt_opts(Mod) ->
 get_data_dir(Config) ->
     Data0 = ?config(data_dir, Config),
     {ok,Data1,_} = regexp:sub(Data0, "_no_opt_SUITE", "_SUITE"),
-    {ok,Data2,_} = regexp:sub(Data1, "_post_opt_SUITE", "_SUITE"),
-    {ok,Data,_} = regexp:sub(Data2, "_r11_SUITE", "_SUITE"),
+    {ok,Data,_} = regexp:sub(Data1, "_post_opt_SUITE", "_SUITE"),
     Data.
